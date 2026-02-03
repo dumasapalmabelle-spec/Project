@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Futuristic UI</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Orbitron', sans-serif;
+}
+body{
+  background:#050b1e;
+  color:white;
+  overflow-x:hidden;
+}
+
+/* Glow Background */
+.bg{
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:radial-gradient(circle at 20% 20%,#00f0ff44,transparent),
+             radial-gradient(circle at 80% 80%,#ff00ff44,transparent);
+  z-index:-1;
+}
+
+/* Navbar */
+nav{
+  display:flex;
+  justify-content:space-between;
+  padding:20px 50px;
+  backdrop-filter:blur(15px);
+  background:#ffffff10;
+  border-bottom:1px solid #ffffff20;
+}
+nav h1{
+  color:#00f0ff;
+}
+nav ul{
+  display:flex;
+  list-style:none;
+  gap:25px;
+}
+nav ul li{
+  cursor:pointer;
+  transition:.3s;
+}
+nav ul li:hover{
+  color:#00f0ff;
+}
+
+/* Hero */
+.hero{
+  min-height:90vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+.hero h2{
+  font-size:3rem;
+  background:linear-gradient(90deg,#00f0ff,#ff00ff);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+.hero p{
+  margin-top:20px;
+  color:#ccc;
+}
+.hero button{
+  margin-top:30px;
+  padding:15px 40px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(90deg,#00f0ff,#ff00ff);
+  color:black;
+  font-weight:bold;
+  cursor:pointer;
+  transition:.4s;
+}
+.hero button:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 25px #00f0ff;
+}
+
+/* Cards */
+.section{
+  padding:80px 50px;
+}
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+.card{
+  padding:25px;
+  background:#ffffff10;
+  border:1px solid #ffffff30;
+  border-radius:15px;
+  backdrop-filter:blur(10px);
+  transition:.4s;
+}
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 30px #00f0ff55;
+}
+
+/* Footer */
+footer{
+  padding:20px;
+  text-align:center;
+  background:#ffffff10;
+  border-top:1px solid #ffffff30;
+}
+</style>
+</head>
+
+<body>
+<div class="bg"></div>
+
+<nav>
+  <h1>NEONWEB</h1>
+  <ul>
+    <li>Home</li>
+    <li>Features</li>
+    <li>About</li>
+    <li>Contact</li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div>
+    <h2>FUTURE INTERFACE</h2>
+    <p>Next-generation modern UI powered by pure HTML, CSS, and JavaScript</p>
+    <button onclick="launch()">Launch System</button>
+  </div>
+</section>
+
+<section class="section">
+  <div class="cards">
+    <div class="card">
+      <h3>⚡ Speed</h3>
+      <p>Ultra-fast animations and optimized layout.</p>
+    </div>
+    <div class="card">
+      <h3>🧠 AI Ready</h3>
+      <p>Designed for future AI integration.</p>
+    </div>
+    <div class="card">
+      <h3>🔮 Neon Design</h3>
+      <p>Glowing futuristic aesthetic.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Futuristic UI System</p>
+</footer>
+
+<script>
+function launch(){
+  alert("🚀 System Activated!");
+}
+
+/* Mouse glow */
+document.addEventListener("mousemove", e=>{
+  document.body.style.backgroundPosition =
+  `${e.clientX/30}px ${e.clientY/30}px`;
+});
+</script>
+
+</body>
+</html>
