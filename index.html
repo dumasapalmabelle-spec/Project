@@ -12,6 +12,7 @@
   padding:0;
   box-sizing:border-box;
   font-family:'Orbitron', sans-serif;
+  scroll-behavior:smooth;
 }
 body{
   background:#050b1e;
@@ -37,22 +38,17 @@ nav{
   backdrop-filter:blur(15px);
   background:#ffffff10;
   border-bottom:1px solid #ffffff20;
+  position:sticky;
+  top:0;
 }
-nav h1{
-  color:#00f0ff;
-}
-nav ul{
-  display:flex;
-  list-style:none;
-  gap:25px;
-}
-nav ul li{
-  cursor:pointer;
+nav h1{color:#00f0ff;}
+nav ul{display:flex;list-style:none;gap:25px;}
+nav ul li a{
+  color:white;
+  text-decoration:none;
   transition:.3s;
 }
-nav ul li:hover{
-  color:#00f0ff;
-}
+nav ul li a:hover{color:#00f0ff;}
 
 /* Hero */
 .hero{
@@ -68,10 +64,7 @@ nav ul li:hover{
   -webkit-background-clip:text;
   color:transparent;
 }
-.hero p{
-  margin-top:20px;
-  color:#ccc;
-}
+.hero p{margin-top:20px;color:#ccc;}
 .hero button{
   margin-top:30px;
   padding:15px 40px;
@@ -88,10 +81,17 @@ nav ul li:hover{
   box-shadow:0 0 25px #00f0ff;
 }
 
-/* Cards */
+/* Sections */
 .section{
-  padding:80px 50px;
+  padding:90px 60px;
 }
+.section h2{
+  text-align:center;
+  margin-bottom:40px;
+  color:#00f0ff;
+}
+
+/* Cards */
 .cards{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -110,6 +110,43 @@ nav ul li:hover{
   box-shadow:0 0 30px #00f0ff55;
 }
 
+/* About */
+.about{
+  max-width:900px;
+  margin:auto;
+  text-align:center;
+  line-height:1.8;
+  color:#ccc;
+}
+
+/* Contact */
+form{
+  max-width:600px;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+input,textarea{
+  padding:15px;
+  border-radius:10px;
+  border:none;
+  background:#ffffff15;
+  color:white;
+  outline:none;
+}
+button.submit{
+  background:linear-gradient(90deg,#00f0ff,#ff00ff);
+  border:none;
+  padding:15px;
+  border-radius:30px;
+  cursor:pointer;
+  font-weight:bold;
+}
+button.submit:hover{
+  box-shadow:0 0 20px #00f0ff;
+}
+
 /* Footer */
 footer{
   padding:20px;
@@ -126,14 +163,14 @@ footer{
 <nav>
   <h1>NEONWEB</h1>
   <ul>
-    <li>Home</li>
-    <li>Features</li>
-    <li>About</li>
-    <li>Contact</li>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<section class="hero">
+<section class="hero" id="home">
   <div>
     <h2>FUTURE INTERFACE</h2>
     <p>Next-generation modern UI powered by pure HTML, CSS, and JavaScript</p>
@@ -141,21 +178,44 @@ footer{
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="features">
+  <h2>FEATURES</h2>
   <div class="cards">
     <div class="card">
       <h3>⚡ Speed</h3>
-      <p>Ultra-fast animations and optimized layout.</p>
+      <p>Lightning-fast UI and smooth animations.</p>
     </div>
     <div class="card">
-      <h3>🧠 AI Ready</h3>
-      <p>Designed for future AI integration.</p>
+      <h3>🧠 Smart Design</h3>
+      <p>AI-ready and scalable structure.</p>
     </div>
     <div class="card">
-      <h3>🔮 Neon Design</h3>
-      <p>Glowing futuristic aesthetic.</p>
+      <h3>🔮 Futuristic UI</h3>
+      <p>Neon-glass modern aesthetics.</p>
     </div>
   </div>
+</section>
+
+<section class="section" id="about">
+  <h2>ABOUT US</h2>
+  <div class="about">
+    <p>
+      NEONWEB is a futuristic web interface concept focused on delivering
+      modern design, smooth animations, and high usability. Built using
+      pure HTML, CSS, and JavaScript, it demonstrates how lightweight
+      technologies can create visually stunning digital experiences.
+    </p>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <h2>CONTACT</h2>
+  <form onsubmit="sendMessage(event)">
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea rows="5" placeholder="Your Message" required></textarea>
+    <button class="submit">Send Message</button>
+  </form>
 </section>
 
 <footer>
@@ -165,6 +225,10 @@ footer{
 <script>
 function launch(){
   alert("🚀 System Activated!");
+}
+function sendMessage(e){
+  e.preventDefault();
+  alert("✅ Message sent successfully!");
 }
 
 /* Mouse glow */
